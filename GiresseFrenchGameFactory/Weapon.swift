@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  Weapon.swift
 //  GiresseFrenchGameFactory
 //
 //  Created by Mikungu Giresse on 24/05/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-let game = Game()
-
-
-game.startTheGame()
+struct Weapon {
+    let type: String
+    let damage: Int
+}

@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		DCDA8502283D511C00E71C97 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDA8501283D511C00E71C97 /* main.swift */; };
+		DCDA8509283D51AC00E71C97 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDA8508283D51AC00E71C97 /* Player.swift */; };
+		DCDA850B283D51FA00E71C97 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDA850A283D51FA00E71C97 /* Game.swift */; };
+		DCDA850D283D525400E71C97 /* Personage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDA850C283D525400E71C97 /* Personage.swift */; };
+		DCDA850F283D529500E71C97 /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDA850E283D529500E71C97 /* Warrior.swift */; };
+		DCDA8511283D52E600E71C97 /* Magus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDA8510283D52E600E71C97 /* Magus.swift */; };
+		DCDA8513283D531500E71C97 /* Colossus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDA8512283D531500E71C97 /* Colossus.swift */; };
+		DCDA8515283D536300E71C97 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDA8514283D536300E71C97 /* Weapon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +32,13 @@
 /* Begin PBXFileReference section */
 		DCDA84FE283D511C00E71C97 /* GiresseFrenchGameFactory */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GiresseFrenchGameFactory; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDA8501283D511C00E71C97 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		DCDA8508283D51AC00E71C97 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DCDA850A283D51FA00E71C97 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		DCDA850C283D525400E71C97 /* Personage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personage.swift; sourceTree = "<group>"; };
+		DCDA850E283D529500E71C97 /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
+		DCDA8510283D52E600E71C97 /* Magus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magus.swift; sourceTree = "<group>"; };
+		DCDA8512283D531500E71C97 /* Colossus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colossus.swift; sourceTree = "<group>"; };
+		DCDA8514283D536300E71C97 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,13 @@
 			isa = PBXGroup;
 			children = (
 				DCDA8501283D511C00E71C97 /* main.swift */,
+				DCDA850A283D51FA00E71C97 /* Game.swift */,
+				DCDA8508283D51AC00E71C97 /* Player.swift */,
+				DCDA850C283D525400E71C97 /* Personage.swift */,
+				DCDA850E283D529500E71C97 /* Warrior.swift */,
+				DCDA8510283D52E600E71C97 /* Magus.swift */,
+				DCDA8512283D531500E71C97 /* Colossus.swift */,
+				DCDA8514283D536300E71C97 /* Weapon.swift */,
 			);
 			path = GiresseFrenchGameFactory;
 			sourceTree = "<group>";
@@ -120,7 +141,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCDA8509283D51AC00E71C97 /* Player.swift in Sources */,
+				DCDA8515283D536300E71C97 /* Weapon.swift in Sources */,
+				DCDA850F283D529500E71C97 /* Warrior.swift in Sources */,
+				DCDA850B283D51FA00E71C97 /* Game.swift in Sources */,
+				DCDA8513283D531500E71C97 /* Colossus.swift in Sources */,
+				DCDA850D283D525400E71C97 /* Personage.swift in Sources */,
 				DCDA8502283D511C00E71C97 /* main.swift in Sources */,
+				DCDA8511283D52E600E71C97 /* Magus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
