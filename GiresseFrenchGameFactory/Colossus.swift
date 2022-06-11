@@ -16,7 +16,7 @@ class Colossus : Personage {
         
         healthSkill = 20
         
-        weapon = Weapon(type: "gun", damage: 30)
+        weapon = Weapon(type: "gun", damage: 40)
         
         description = ("3. Colosse | PDV: \(lifePoints) | arme: \(weapon) avec \(weapon.damage) de degats | soin: \(healthSkill) ")
         

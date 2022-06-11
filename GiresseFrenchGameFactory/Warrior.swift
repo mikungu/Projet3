@@ -16,7 +16,7 @@ class Warrior : Personage {
         
         healthSkill = 10
         
-        weapon = Weapon(type: "sword", damage: 20)
+        weapon = Weapon(type: "sword", damage: 30)
         
         description = ("1. Guerrier | PDV: \(maxLifePoints) | arme: \(weapon) avec \(weapon.damage) de degats | soin: \(healthSkill) ")
         

@@ -25,42 +25,55 @@ class Game {
     
    //La première étape consiste à lancer le jeu avec l'affichage du mot de bienvenue
     func startTheGame () {
-        print("Bienvenue dans le Jeu de Combat le plus pitoyable ! \n")
+        print("Bienvenue dans le Jeu de Combat le plus impitoyable ! \n")
         
     //Le jeu a deux joueurs dont chacun doit former son équipe
-         createPlayer()
-        createTeam()
+         createPlayers()
+         
     
+    }
+    
+    func createPlayers () {
+        while players.count < 2 {
+            createPlayer()
+            createTeam()
+        }
+        battleRounds()
+        gameOver()
+        
     }
     
     //Le joueur choisit le nom de son équipe en s'assurant que ce nom n'est pas encore pris
     private func createPlayer () {
-        print("\n\n Joueur \(players.count+1)  A toi de choisir le nom d'équipe:")
+        print("\n\n Joueur \(players.count+1) Comment t'appelles-tu?\n\n")
         
+        var validName: Bool = false
+        
+          while !validName {
             if let userInput = readLine() {
                 if !userInput.isEmpty {
-                    var test = userInput.trimmingCharacters(in: .whitespacesAndNewlines)
-                    test = test.uppercased()
-                    
-                    print(test)
+                    let finalName = userInput.trimmingCharacters(in: .whitespacesAndNewlines)
                 
-            }
-                if allPlayers.contains(userInput) {
-                    print ("Désolé, ce nom a été déjà choisi")
+            
+                    if allPlayers.contains(finalName) {
+                    print ("Désolé, ce nom est déjà pris, veuillez en choisir un autre")
+                    validName = false
                 } else {
-                    let player = Player (name: userInput)
+                    let player = Player (name: finalName)
                     players.append(player)
-                    print ("Super équipe \(player.name).")
+                    print ("Super \(player.name).")
+                    validName = true
                 }
-            } else {
+              }
+        } else {
                 print ("Choisis un nom valide")
-                createPlayer()
-            }
-        
+                validName = false
+             }
+          }
     }
     //Chaque joueur forme son équipe composée de 3 personnages
     private func createTeam () {
-        print ("\nForme une équipe de 3 personnages \n")
+        print ("\nA présent, Forme une équipe de 3 personnages \n")
         for player in players {
             player.createMyTeam()
         }
@@ -78,14 +91,53 @@ class Game {
             for player in players {
                 if player.deadTeamPersonages == false {
                     let opponent = players.filter { player.name != $0.name} [0]
+                    
+                    player.pickFighter()
+                    player.chooseAction(enemyTeam: opponent.team)
                 }
             }
             roundCount += 1
         }
     }
     
+    private func gameOver () {
+       declareWinner()
+        statsDisplay()
+    }
     
+    private func declareWinner () {
+        print ("\nVoici le Vainqueur de la partie:\n\n")
+        if players[0].aliveTeamPersonages.count > players[1].aliveTeamPersonages.count {
+            print ("L'Equipe \(players[0].name) remporte la partie")
+        } else {
+            print ("L'Equipe \(players[1].name) remporte la partie")
+        }
+    }
     
+    private func statsDisplay () {
+        print ("\n\nLes stats se présentent comme suit:\n\n")
+        print ("Equipe \(players[0].name) VS Equipe \(players[1].name)\n\n")
+        print ("Nombre de round: \(roundCount+1)\n\n")
+        
+        for player in players {
+            print ("\nStats des personnages de l'équipe \(player.name):\n")
+            
+            print ("\nPersonnages morts")
+            for personage in player.team where personage.lifePoints == 0 {
+                personageStats (personage: personage)
+            }
+            if player.aliveTeamPersonages.count > 0 {
+                print ("\nPersonnes en vie")
+                for personage in player.aliveTeamPersonages {
+                    personageStats (personage: personage)
+                }
+            }
+            
+        }
+    }
     
+    private func personageStats (personage: Personage) {
+        print ("\n \(personage.name)" + "Classe: \(personage.personageType)" + "Points de vie \(personage.lifePoints)")
+    }
     
 }
