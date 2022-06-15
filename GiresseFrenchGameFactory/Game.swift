@@ -120,14 +120,14 @@ class Game {
         print ("Nombre de round: \(roundCount+1)\n\n")
         
         for player in players {
-            print ("\nStats des personnages de l'équipe \(player.name):\n")
+            print ("\n\nStats des personnages de l'équipe \(player.name):\n\n")
             
-            print ("\nPersonnages morts")
+            print ("\nPersonnages morts:")
             for personage in player.team where personage.lifePoints == 0 {
                 personageStats (personage: personage)
             }
             if player.aliveTeamPersonages.count > 0 {
-                print ("\nPersonnes en vie")
+                print ("\nPersonnes en vie:")
                 for personage in player.aliveTeamPersonages {
                     personageStats (personage: personage)
                 }
@@ -137,7 +137,7 @@ class Game {
     }
     
     private func personageStats (personage: Personage) {
-        print ("\n \(personage.name)" + "Classe: \(personage.personageType)" + "Points de vie \(personage.lifePoints)")
+        print ("\n \(personage.name):" + "Classe: \(personage.personageType);" + "Points de vie: \(personage.lifePoints)")
     }
     
 }
