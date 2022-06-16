@@ -12,14 +12,14 @@ class Player {
     
     var name: String
     
-   //Une équipe est composée d'un tableau de trois personnages
+   //A team consists of an array of three characters
     var team: [Personage] = []
     
-    //Une équipe reste en vie lorsque les points de vie de l'ensemble est supérieure à 0
+    //A team remains alive when the lifePoints of the whole is more than 0
     var aliveTeamPersonages : [Personage] {
         team.filter {$0.lifePoints > 0}
         }
-    //Une équipe est éliminée quand les points de vie de l'ensemble égale à 0 (vide)
+    //A team is eliminated when the lifePoints of the whole equal 0 (empty)
     var deadTeamPersonages : Bool {
         if aliveTeamPersonages.isEmpty {
             return true
@@ -34,6 +34,7 @@ class Player {
     
     var fightingPersonage = Personage(name: "")
     
+    //It's about forming a team by choosing three characters listed with a corresponding number
     func createMyTeam () {
         
         let personagesList = [Warrior(), Magus(), Colossus()]
@@ -64,7 +65,7 @@ class Player {
         
         
     }
-    
+    //After choosing a character, it will be a question of finding a unique name for it.
     func chooseName (of type: String) {
         print("\n Tu as opté pour \(type) trouve-lui un nom")
         
@@ -85,10 +86,10 @@ class Player {
         }
     }
     
-    //Le joueur choisit dans son équipe un personnage
+    //For the fight, each player will pick in his team a character with the corresponding number
     func pickFighter () {
         print ("Equipe \(name), choisis un chiffre correspondant à un personnage avec lequel tu souhaites accomplir une action: \n")
-        //Il choisit parmi les personnages vivants
+        //He will pick among the living characters
         for (index, personage) in team.enumerated() {
             if personage.lifePoints > 0 {
                 print ("\(index+1). \(personage.name) le \(personage.personageType) (\(personage.lifePoints)/\(personage.maxLifePoints) points de vie) \n")
@@ -121,7 +122,7 @@ private func chosenFighter (personageNumber: Int) {
     
     
     
-    //Le joueur indique le type d'action qu'il veut accomplir:
+    //Then he will indicate the type of action he wants to perform with the character of his chosen team by typing the corresponding number
     func chooseAction (enemyTeam: [Personage]) {
         print ("Quelle action veux-tu accomplir?\n"
                + "1. Soigner\n" +
@@ -140,7 +141,7 @@ private func chosenFighter (personageNumber: Int) {
         }
     }
     
-    //Selectionner le pernonnage de l'équipe adverse à attaquer
+    //He will select the character of the opposing team to attack
     func attackChoices (enemyTeam: [Personage]) {
        print ("\n\nChoisis l'ennemi que tu veux attaquer\n\n")
     
@@ -169,8 +170,7 @@ private func chosenFighter (personageNumber: Int) {
         }
     }
     
-    //Attaquer
-    
+    //The attack function consists of taking away the life points of the opponent in relation to the damage caused by his weapon and displaying the remaining life points
     private func attack (target: Personage) {
         
         target.lifePoints -= fightingPersonage.weapon.damage
@@ -183,7 +183,7 @@ private func chosenFighter (personageNumber: Int) {
         }
     }
     
-    //Selectionner un coéquipier à soigner
+    //He will select the teammate to heal from among the living characters, i.e. whose lifePoints are greater than 0
     func healChoices () {
         print ("Choisis un coéquipier à soigner\n")
         for (index, personage) in team.enumerated() {
@@ -211,7 +211,7 @@ private func chosenFighter (personageNumber: Int) {
         }
     
     
-    //Soigner
+    //The healing function consists of adding the life points to the teammate in relation to his healSkill and then displaying the total life points
     private func heal (personageNumber: Int) {
         let target = team [personageNumber]
         if target.lifePoints <= target.maxLifePoints - fightingPersonage.healthSkill {
@@ -226,10 +226,10 @@ private func chosenFighter (personageNumber: Int) {
     
     
     
-    //Le joueur selectionne le personnage vers qui son action est destinée:
+    //The player selects the character towards whom his action is intended:
     func pickEnemy () {
         print ("Equipe \(name), choisis un chiffre correspondant à un personnage avec lequel tu souhaites accomplir une action: \n")
-        //Il choisit parmi les personnages vivants
+        //He chooses among the living characters
         for (index, personage) in team.enumerated() {
             if personage.lifePoints > 0 {
                 print ("\(index+1). \(personage.name) le \(personage.personageType) (\(personage.lifePoints)/\(personage.maxLifePoints) points de vie) \n")
