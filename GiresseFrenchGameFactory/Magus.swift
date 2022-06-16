@@ -16,7 +16,7 @@ class Magus : Personage {
         
         healthSkill = 30
         
-        weapon = Weapon(type: "hammer", damage: 20)
+        weapon = Weapon(type: "hammer", damage: 40)
         
         description = ("2. Mage | PDV: \(lifePoints) | arme: \(weapon.type) avec \(weapon.damage) de degats | soin: \(healthSkill) ")
         
